@@ -172,3 +172,68 @@ body::-webkit-scrollbar {
 
     .room-features .size-price{margin-bottom: 2em;}
 }
+
+/*estilos habitacion*/
+.fadeInUp {
+    visibility: visible !important;
+}
+.filtros {
+    margin-bottom: 6px;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-start; 
+    gap: 10px; 
+    padding: 20px; 
+    background-color: #f8f9fa; 
+    border-radius: 8px;
+}
+
+.detalleHabitacion {
+    display: block;            /* Activa el flexbox */
+    justify-content: center;   /* Centra horizontalmente */
+    align-items: center;       /* Centra verticalmente */
+    text-align: center;      
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.servicios-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+  }
+  
+  .servicio-item {
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .servicio-checkbox {
+    margin-right: 15px;
+  }
+  
+  .servicio-info {
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .descripcion {
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .valor {
+    font-size: 18px;
+    font-weight: bold;
+    color: #4CAF50;
+  }
+  
