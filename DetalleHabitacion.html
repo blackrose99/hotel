@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-
+    <head>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -31,28 +29,135 @@
         <script type="text/javascript" src="assets/daterangepicker-master/daterangepicker.js"></script>
         <script type="text/javascript" src="js/DetalleHabitacion.js"></script>
     </head>
-</head>
+    <body>
+        <div class="container-fluid detalleHabitacion">
+            <h2 id="nombreInmueble"></h2>
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="detalleHabitacion d-flex w-100">
+                    <div class="carousel-inner" id="imagenes">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            <div id="informacion" class="text-left"></div>
+            <label>Añadir servicios</label>
+            <div id="servicios" class="row"></div>
+            <label>Cantidad de noches a reservar</label>
+            <div class="input-container">
+                <button id="decrease" >-</button>
+                <input type="number" id="numberInput" value="1" readonly>
+                <button id="increase" disabled="disabled">+</button>
+            </div>
+            <p id="spanDias">La cantidad maxima de noches se limita al rango de fechas previamente elegido.</p>
+            <button id="btn-registrar" class="btn btn btn-default mb-4">Hacer reserva</button>
+        </div>
+        <div class="modal fade" id="modalRegistrar" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Registro de reserva</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>              
+                    <div class="modal-body">
+                        <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="pills-step1-tab" data-toggle="pill" href="#pills-step1" role="tab" aria-controls="pills-step1" aria-selected="true">Paso 1</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-step2-tab" data-toggle="pill" href="#pills-step2" role="tab" aria-controls="pills-step2" aria-selected="false">Paso 2</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-step3-tab" data-toggle="pill" href="#pills-step3" role="tab" aria-controls="pills-step3" aria-selected="false">Paso 3</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-step1" role="tabpanel" aria-labelledby="pills-step1-tab">
+                                <h5 class="sub_modal_reserva">Registra tus datos</h5>
+                                <div class="form-group">
+                                    <label for="nombre">Tipo Documento</label>
+                                    <select id="tipoDocumento">
+                                        <option value="">-- seleccione --</option>
+                                        <option value="1" desc = "C.C">Cedula ciudadana</option>
+                                        <option value="2"  desc = "Pasaporte">Pasaporte</option>
+                                        <option value="3"  desc = "C.E">Cédula de extranjería</option>
+                                        <option value="4" desc = "P.P.T">Permiso por Protección Temporal</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nombre">Numero Documento:</label>
+                                    <input type="text" class="form-control" id="documento" placeholder="Ingrese su numero de documento">
+                                </div>
+                                <div class="form-group">
+                                    <label for="nombre">Nombre completo</label>
+                                    <input type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Correo Electrónico</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Ingrese su correo">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Celular</label>
+                                    <input type="text" class="form-control" id="celular" placeholder="Ingrese su numero de telefono">
+                                </div>
+                            </div>
 
-<body>
-    <div class="container-fluid detalleHabitacion">
-        <h2 id="nombreInmueble"></h2>
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-            <div class="detalleHabitacion d-flex w-100">
-                <div class="carousel-inner" id="imagenes">
+                            <div class="tab-pane fade" id="pills-step2" role="tabpanel" aria-labelledby="pills-step2-tab">
+                                <h5 class="sub_modal_reserva">Vincula el pago</h5>
+                                <div class="form-group">
+                                    <label for="tarjeta">Número de Tarjeta</label>
+                                    <input type="text" class="form-control" id="tarjeta" placeholder="Ingrese el número de tarjeta">
+                                </div>
+                                <div class="form-group">
+                                    <label for="vencimiento">Fecha de Vencimiento</label>
+                                    <input type="text" class="form-control" id="vencimiento" placeholder="MM/AA">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cvv">CVV</label>
+                                    <input type="text" class="form-control" id="cvv" placeholder="Código CVV">
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="pills-step3" role="tabpanel" aria-labelledby="pills-step3-tab">
+                                <h5 class="sub_modal_reserva">Verifique sus datos:</h5>
+                                <p><strong>Documento</strong> <span id="verificar-documento"></span></p>
+                                <p><strong>Nombre:</strong> <span id="verificar-nombre"></span></p>
+                                <p><strong>Correo Electrónico:</strong> <span id="verificar-email"></span></p>
+                                <p><strong>Numero telefono:</strong> <span id="verificar-telefono"></span></p>
+                                <p><strong>Número de Tarjeta:</strong> <span id="verificar-tarjeta"></span></p>
+                                <p><strong>Fecha de Vencimiento:</strong> <span id="verificar-vencimiento"></span></p>
+                                <p><strong>CVV:</strong> <span id="verificar-cvv"></span></p>
+                                <p><strong>Fecha entrada:</strong> <span id="verificar-fecha"></span></p>
+                                <p><strong>Dias/Noches reservados:</strong> <span id="verificar-dias"></span></p>
+                                <p><strong class="verificar_total">Total:</strong> <span  class="verificar_total" id="verificar-total"></span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal Footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn_registrar d-none" id="confirmarDatos">Confirmar</button>
+                        <button type="button" class="btn btn_anterior d-none" id="formerStepBtn">Anterior</button>
+                        <button type="button" class="btn btn_siguiente" id="nextStepBtn">Siguiente</button>
+                        <button type="button" class="btn btn-cerrar_modal" data-dismiss="modal">Cerrar</button>
+                    </div>
                 </div>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
         </div>
-        <div id="informacion" class="text-left"></div>
-        <div id="servicios" class="servicios-container"></div>
-    </div>
-</body>
-
+        <div class="spinner spinner-container hidden">
+            <img src="images/spinner.gif" alt="Loading...">
+            <div id="progresoDescarga" class="progreso-container hidden">
+                <!--<div class="progreso-texto">0%</div>-->
+            </div>
+        </div>
+    </body>
 </html>
