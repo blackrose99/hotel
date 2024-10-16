@@ -133,7 +133,6 @@ function renderizarHabitaciones() {
             $("#habitaciones_rta").append('<p>Hubo un problema al cargar las habitaciones. Intente de nuevo más tarde.</p>');
         }
     });
-
 }
 function mostrarDetallesHabitacion(idHabitacion) {
     window.open('detalleHabitacion.html?id=' + idHabitacion, 'Detalles de la Habitación', 'width=800,height=600');
